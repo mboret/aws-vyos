@@ -12,7 +12,8 @@ This repository describes how to configure the AWS VPN service on the first regi
 For this how to we will used the region us-east-1 and eu-west-1.
 The goal is to authorize instances in the VPC-EU to communicate with the instances in the VPC-US and vice versa.
 
-```                  US-EAST-1                                                        EU-WEST-1                 
+```  
+                      US-EAST-1                                                        EU-WEST-1                 
 -------------------           ------------------                      ---------------------       ---------------------
 | VPC-US 10.10.0.0/16 | <===> | AWS VPN Service| <===> INTERNET <===> | EC2-Vyos-Instance | <===> | VPC-EU 10.0.0.0/16 |
 -------------------           ------------------                      ---------------------       ---------------------
