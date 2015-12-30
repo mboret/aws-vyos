@@ -40,13 +40,13 @@ In your AWS console, select the region US-EAST-1 and the VPC service.
 - Click on "Create Virtual Private Gateway"
     - "Name Tag" -> The name of the private gateway(ex: PG-EU-US-PROD)
     -  Select the VPG previously create and click on "attach to VPC"
-    -  Choose the VPC which will accessible though the VPN(in our example: VPC-US).
+    -  Choose the VPC which will accessible through the VPN(in our example: VPC-US).
  
 1.3 - Configure the VPN connection:
 
 - Click on "Create VPN Connection":
 
-    - "Name Tag" -> The name of the VPN connexion(ex: VPN-EU-US-PROD)
+    - "Name Tag" -> The name of the VPN connection(ex: VPN-EU-US-PROD)
     - "Virtual Private Gateway" -> Select the Virtual Gateway create at the step 1.2
     - "Customer Gateway" -> Select the Customer Gateway create at the step 1.1
     - "Routing Options" -> Select "Dynamic"
@@ -69,7 +69,7 @@ In your AWS console, select the region EU-WEST-1 and the EC2 Service.
     - Select "AWS Marketplace" et search "vyos"
     - Choose the instance type.
     - Choose the VPC and the subnet(only Public!!!) where the Vyos instance will be started(ex: VPC-EU)
-    - Create a new security group and add rules for the two Public IPs of the US VPN(step 1.4) and authorize them for the ports UDP/500, TCP/179 and UDP/123.
+    - Create a new security group and add rules for the two Public IPs of the US VPN(step 1.4) and authorize them on the ports UDP/500, TCP/179 and UDP/123.
     - Finish the setup process as usual.
 
 When the instance is ready, select it, right click -> networking -> source dest/check and click on disabled.
@@ -82,7 +82,7 @@ When the instance is ready, select it, right click -> networking -> source dest/
 Parameters:
  
     - vpn_config_path: Full path of the VPN configuration downloaded at the end of the step 1.4(ex: /tmp/vpn-aa99ezv1.txt)
-    - vyos_ip: The private IP of the Vyos instance Vyos(ex: 10.0.1.100)
+    - vyos_ip: The private IP of the Vyos instance(ex: 10.0.1.100)
     - cidr_vpc_vyos: The VPC CIDR of the Vyos instance(ex: 10.0.0.0/16)
     - local_gateway: The local gateway of the Vyos instance, you can found it when you are connected on Vyos with the command "show ip route"(take the gateway for the route "0.0.0.0/0"). (ex: 10.0.1.1)
 
@@ -96,7 +96,7 @@ Example:
     - Execute the script: 
         *vbash vyos_config.sh*
 
-### The instance will reboot automaticaly. Don't panic :)
+### The instance will reboot automatically. Don't panic :)
 
 
 # 3. Update the route tables 
@@ -109,13 +109,13 @@ Example:
  
 3.2 - In EU-WEST-1:
 
-- Select the VPC -> route tables -> select the route tables attached to the subnets which you want to give the VPN access though the Vyos instance.
+- Select the VPC -> route tables -> select the route tables attached to the subnets which you want to give the VPN access through the Vyos instance.
 - Select the tab "routes", click on  "add". In "destination" enter the network CIDR of the US-EAST-1(ex: 10.10.0.0/16) and in "target", choose the instance Vyos.
 
 
 # Conclusion
 
-Normally, now you have a working VPN connection between two AWS region and the other EC2 instances can communicate though it(if they are in the VPC-US or in the VPC-EU).
+Normally, now you have a working VPN connection between two AWS regions and the other EC2 instances can communicate through it(if they are in the VPC-US or in the VPC-EU).
 
 
 # Vyos debug commands
