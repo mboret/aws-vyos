@@ -8,6 +8,8 @@
     Argument3: The CIDR of the VPC on the Vyos side(ex: 10.0.0.0/16)
     Argument4: The local gateway of the Vyos instance(ex: 10.0.0.1)
 
+    Think to execute the script output as root on the Vyos instance.
+
 """
 #!/bin/env python
 # -*- coding: utf-8 -*-
