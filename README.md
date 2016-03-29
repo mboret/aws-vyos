@@ -128,5 +128,9 @@ Normally, now you have a working VPN connection between two AWS regions and the 
 - show vpn ipsec sa
 - show bgp 
 
+# Debug steps
 
+- Try to ping your Vyos instance from another local instance(same VPC).
+- Launch a tcpdump on the Vyos instance when you are trying to ping instances over the VPN. 
+- Try to ping your Vyos instance from a remote instance(the other side of your VPN).
 
