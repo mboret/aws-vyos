@@ -93,6 +93,10 @@ Example:
 - Connect on your Vyos EC2 instance(user: vyos):
 
     - Import the bash script create at the previous step.
+    - Make the script executable:
+	*chmod +x vyos_config.sh*
+    - Change the vyos user to root:
+	*sudo su*
     - Execute the script: 
         *vbash vyos_config.sh*
 
@@ -123,5 +127,6 @@ Normally, now you have a working VPN connection between two AWS regions and the 
 - show ip route
 - show vpn ipsec sa
 - show bgp 
+
 
 
