@@ -49,7 +49,7 @@ def create_script_file(config, local_IP, local_cidr, local_gateway):
     bgp = re.search(r'bgp (.*) neighbor', bgp).group(1)
     f = open('/tmp/vyos_config.sh', 'w')
     f.write('#!/bin/vbash\nsource /opt/vyatta/etc/functions/script-template\n')
-    f.write('echo "Vyos-1.1.6" |run add system image http://packages.vyos.net/iso/release/1.1.6/vyos-1.1.6-amd64.iso\nconfigure\n')
+    f.write('echo "Vyos-1.1.7" |run add system image http://packages.vyos.net/iso/release/1.1.7/vyos-1.1.7-amd64.iso\nconfigure\n')
     for line in config:
         if re.search(r'local-address', line):
             f.write(line.split('local-address')[0] + 'local-address ' + local_IP + '\n')
