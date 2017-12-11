@@ -126,7 +126,7 @@ Normally, now you have a working VPN connection between two AWS regions and the 
 
 - show ip route
 - show vpn ipsec sa
-- show bgp 
+- show ip bgp 
 
 # Debug steps
 
